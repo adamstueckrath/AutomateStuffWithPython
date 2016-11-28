@@ -34,10 +34,16 @@ for groups in phoneRegex.findall(text): # the findall() regex will return a list
     phoneNum = '-'.join([groups[1],groups[3], groups[5]]) # instead of groups[0], make all numbers the same format
     if groups[8] != '': 
         phoneNum += ' x' + groups[8] # format number extension 
-    matches.append(phoneNum) # append number to matches
+    if phoneNum not in matches:
+        matches.append(phoneNum) # append number to matches
+    else:
+        continue
 
 for groups in emailRegex.findall(text):
-    matches.append(groups[0]) # append email to matches
+    if groups[0] not in matches:
+        matches.append(groups[0]) # append email to matches
+    else:
+        continue
 
 # copy reuslt to clipboard 
 if len(matches) > 0: # if matches found, copy to clipboard and print
