@@ -1,7 +1,7 @@
 
 # coding: utf-8
-
-# In[ ]:
+#! python3
+# test for secure password 
 
 # ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$
 securePasswordCheck = re.compile(r''' 
